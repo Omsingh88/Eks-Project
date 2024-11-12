@@ -24,3 +24,9 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/aws-load-bala
 5. Next, you have to create and configure an IAM OIDC provider for your demo-cluster.
 
 eksctl utils associate-iam-oidc-provider --cluster $cluster_name --approve
+
+6. Setup for ALB controller add on.
+curl -O https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.5.4/docs/install/iam_policy.json
+
+7. Finally, We’ll Deploy AWS Load Balancer Controller:
+helm repo add eks https://aws.github.io/eks-charts
